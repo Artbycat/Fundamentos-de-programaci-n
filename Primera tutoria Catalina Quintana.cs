@@ -25,11 +25,11 @@ namespace Primer_Reto
 				double m = (y2 - y1) / (x2 - x1);
 				double b = y1 - (m * x1);
 				double a = (x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1);
-				double A = Math.Sqrt(a);
+				double Distancia = Math.Sqrt(a);
 
 				Console.WriteLine("La pendiente es: " + m);
 				Console.WriteLine("El intercepto es: " + b);
-				Console.WriteLine("La distancia es: " + A);
+				Console.WriteLine("La distancia es: " + Distancia);
 
 
 			}
