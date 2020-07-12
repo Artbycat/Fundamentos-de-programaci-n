@@ -6,6 +6,7 @@ namespace Binario_a_decimal
     {
         static void Main(string[] args)
         {
+            //Input del usuario, lectura del input
             Console.WriteLine("Input binary value 1: ");
             string s1 = Console.ReadLine();
 
@@ -20,13 +21,15 @@ namespace Binario_a_decimal
 
             Console.WriteLine("Input binary value 5: ");
             string s5 = Console.ReadLine();
-
+            
+            //Conversión
             int b1 = Convert.ToInt32(s1, 2);
             int b2 = Convert.ToInt32(s2, 2);
             int b3 = Convert.ToInt32(s3, 2);
             int b4 = Convert.ToInt32(s4, 2);
             int b5 = Convert.ToInt32(s5, 2);
 
+            //Resultados
             Console.WriteLine("Input value 1 in base 10: " + b1);
             Console.WriteLine("Input value 2 in base 10: " + b2);
             Console.WriteLine("Input value 3 in base 10: " + b3);
