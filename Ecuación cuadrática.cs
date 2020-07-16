@@ -31,7 +31,7 @@ namespace Cuadrática
                 Console.WriteLine("Existen dos soluciones.");
                 Console.WriteLine("Solucion(es): " + solutionPositive + " y " + solutionNegative);
             }
-            else if (discrim < 0)
+            else
             {
                 Console.WriteLine("No hay solución.");
             }
