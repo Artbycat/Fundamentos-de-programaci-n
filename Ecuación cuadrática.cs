@@ -17,17 +17,20 @@ namespace Cuadrática
 
             //Operaciones matemáticas
             double discrim = (b * b) - (4 * a * c);
-            double solutionPositive = ((-b) + Math.Sqrt(discrim)) / (2 * a);
-            double solutionNegative = ((-b) - Math.Sqrt(discrim)) / (2 * a);
-
+            
             //Condicional
             if (discrim == 0)
             {
+                double solutionPositive = (-b) / (2 * a);
+                
                 Console.WriteLine("La solución es única.");
-                Console.WriteLine("Solucion(es): " + solutionPositive + " y " + solutionNegative);
+                Console.WriteLine("Solucion: " + solutionPositive);
             }
             else if(discrim > 0)
             {
+                double solutionPositive = ((-b) + Math.Sqrt(discrim)) / (2 * a);
+                double solutionNegative = ((-b) - Math.Sqrt(discrim)) / (2 * a);
+                
                 Console.WriteLine("Existen dos soluciones.");
                 Console.WriteLine("Solucion(es): " + solutionPositive + " y " + solutionNegative);
             }
