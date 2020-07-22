@@ -14,6 +14,10 @@ namespace Salario
 
             //Salario base
             double sBase = s * (0.4);
+            int smmlv = 887803;
+            if(sBase < smmlv){
+                sBase = smmlv;}
+                
             
             //condicional independiente
             if (tipo == 2)
