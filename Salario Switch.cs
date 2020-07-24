@@ -30,15 +30,16 @@ namespace SalarioSwitch
                 switch (riesgoSwitch)
                 {
                     case 1:
-                       arl = 0.00522; break;
+                       arl = 0.00522; 
                     case 2:
-                       arl = 0.01044; break;
+                       arl = 0.01044; 
                     case 3:
-                       arl = 0.02436; break;
+                       arl = 0.02436; 
                     case 4:
-                       arl = 0.04350; break;
+                       arl = 0.04350; 
                     default:
-                        arl = 0.0696; break;
+                        arl = 0.0696; 
+                        break;
                 }                
                 arl *= sBase;
                 pension = sBase * 0.16;
