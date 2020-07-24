@@ -6,125 +6,42 @@ namespace Salario
     {
         static void Main(string[]args)
         {
+            double pension = 0, eps = 0, arl = 0, deducciones = 0;
+            int prima = 0;
             //Input del usuario
             Console.WriteLine("Ingrese su salario: ");
-            double s = double.Parse(Console.ReadLine());
+            int salarioMensual = int.Parse(Console.ReadLine());
             Console.WriteLine("Seleccione su tipo de contrato: 1. Dependiente 2. Independiente");
-                int tipo = int.Parse(Console.ReadLine());
-
+            int tipo = int.Parse(Console.ReadLine());
             //Salario base
-            double sBase = s * (0.4);
+            double sBase = salario * (0.4);
             int smmlv = 887803;
             if(sBase < smmlv){
-                sBase = smmlv;}
-                
-            
-            //condicional independiente
-            if (tipo == 2)
-            {
+                sBase = smmlv;}            
+            if (tipo == 1){
+                pension = (sBase) * (0.04);
+                eps = (sBase) * (0.04);
+                prima = salario;
+                deducciones = (pension + eps);        
+            }
+            else{
                 Console.WriteLine("Clasifique su nivel de riesgo de 1 a 5");
-                int r = int.Parse(Console.ReadLine());
-                //Condicional riesgo
-                if (r == 1)
-                {
-                    //Cálculo deducciones
-                    double pPercent = (sBase) * (0.16);
-                    double ePercent = (sBase) * (0.125);
-                    double rPercent = sBase * (0.00522);
-                    double deducciones = (rPercent + pPercent + ePercent);
-                    //Cálculo salario
-                    double sMensual = s - deducciones;
-                    double sAnual = sMensual * 12;
-                    //output
-                    Console.WriteLine("Su ARL es de: " + rPercent);
-                    Console.WriteLine("Su EPS es de: " + ePercent);
-                    Console.WriteLine("Su Pension es de: " + pPercent);
-                    Console.WriteLine("Sus deducciones son: " + deducciones);
-                    Console.WriteLine("Su salario mensual real es: " + sMensual);
-                    Console.WriteLine("Su salario anual real es: " + sAnual);
-                }
-                else if (r == 2)
-                {
-                    double pPercent = (sBase) * (0.16);
-                    double ePercent = (sBase) * (0.125);
-                    double rPercent = sBase * (0.01044);
-                    double deducciones = (rPercent + pPercent + ePercent);
-                    double sMensual = s - deducciones;
-                    double sAnual = sMensual * 12;
-                    Console.WriteLine("Su ARL es de: " + rPercent);
-                    Console.WriteLine("Su EPS es de: " + ePercent);
-                    Console.WriteLine("Su Pension es de: " + pPercent);
-                    Console.WriteLine("Sus deducciones son: " + deducciones);
-                    Console.WriteLine("Su salario mensual real es: " + sMensual);
-                    Console.WriteLine("Su salario anual real es: " + sAnual);
-                }
-                else if (r == 3)
-                {
-                    double pPercent = (sBase) * (0.16);
-                    double ePercent = (sBase) * (0.125);
-                    double rPercent = sBase * (0.02436);
-                    double deducciones = (rPercent + pPercent + ePercent);
-                    double sMensual = s - deducciones;
-                    double sAnual = sMensual * 12;
-                    Console.WriteLine("Su ARL es de: " + rPercent);
-                    Console.WriteLine("Su EPS es de: " + ePercent);
-                    Console.WriteLine("Su Pension es de: " + pPercent);
-                    Console.WriteLine("Sus deducciones son: " + deducciones);
-                    Console.WriteLine("Su salario mensual real es: " + sMensual);
-                    Console.WriteLine("Su salario anual real es: " + sAnual);
-                }
-                else if (r == 4)
-                {
-                    double pPercent = (sBase) * (0.16);
-                    double ePercent = (sBase) * (0.125);
-                    double rPercent = sBase * (0.0435);
-                    double deducciones = (rPercent + pPercent + ePercent);
-
-                    double sMensual = s - deducciones;
-                    double sAnual = sMensual * 12;
-                    Console.WriteLine("Su ARL es de: " + rPercent);
-                    Console.WriteLine("Su EPS es de: " + ePercent);
-                    Console.WriteLine("Su Pension es de: " + pPercent);
-                    Console.WriteLine("Sus deducciones son: " + deducciones);
-                    Console.WriteLine("Su salario mensual real es: " + sMensual);
-                    Console.WriteLine("Su salario anual real es: " + sAnual);
-                }
-                else
-                {
-                    double pPercent = (sBase) * (0.16);
-                    double ePercent = (sBase)* (0.125);
-                    double rPercent = (sBase) * (0.0696);
-                    double deducciones = (rPercent + pPercent + ePercent);
-                    
-                    double sMensual = s - deducciones;
-                    double sAnual = sMensual * 12;
-                    Console.WriteLine("Su ARL es de: " + rPercent);
-                    Console.WriteLine("Su EPS es de: " + ePercent);
-                    Console.WriteLine("Su Pension es de: " + pPercent);
-                    Console.WriteLine("Sus deducciones son: " + deducciones);
-                    Console.WriteLine("Su salario mensual real es: " + sMensual);
-                    Console.WriteLine("Su salario anual real es: " + sAnual);
-                  
-                }
-                
+                int riesgo = int.Parse(Console.ReadLine());
+                double claseRiesgo = 0;   
+                if(riesgo == 1) arl = 0.00522;
+                else if (riesgo == 2) arl = 0.01044;
+                else if (riesgo == 3) arl = 0.02436;
+                else if (riesgo == 4) arl = 0.04350;
+                else if (riesgo == 5) arl = 0.0696;    
+                arl *= ibc; //double salarioAnual = salarioRealMensual * 12;
+                pension = sBase * 0.16;
+                eps = sBase * 0.125;
+                deducciones = (pension + eps + arl);                       
             }
-            else
-            {
-                double pPercent = (sBase) * (0.04);
-                double ePercent = (sBase) * (0.04);
-                double prima = s;
-                double deducciones = (pPercent + ePercent);
-
-                double sMensual = s - deducciones;
-                double sAnual = (sMensual * 12) + prima;
-                
-                Console.WriteLine("Su EPS es de: " + ePercent);
-                Console.WriteLine("Su Pension es de: " + pPercent);
-                Console.WriteLine("Sus deducciones son: " + deducciones);
-                Console.WriteLine("Su salario mensual real es: " + sMensual);
-                Console.WriteLine("Su salario anual real es: " + sAnual);
-
-            }
+            int salarioReal = salario - (int)(deducciones);
+            int salarioAnual = salarioReal * 12 + prima;
+              Console.WriteLine("Su EPS es de: " + eps + " Su Pension es de: " + pension + " Su ARL es de: " + arl + " Sus deducciones son: " + deducciones);
+              Console.WriteLine("Su salario mensual real es: " + salarioReal + " Su salario anual real es: " + salarioAnual);  
         }
     }
 }
