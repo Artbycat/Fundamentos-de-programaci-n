@@ -6,7 +6,7 @@ namespace Blackjack_multiplayer
     {
         static void Main(string[] args)
         {
-            int carta = 2, total = 0, puntuacion = 0, jugador = 1, jugadores = 0, ganador = 0;
+            int carta = 2, total = 0, puntuacion = 0, jugador = 1, jugadores = 0, ganador = 0, jugadorWin = 0;
             Random aleatorio = new Random();
             string cont = "";
 
@@ -21,7 +21,6 @@ namespace Blackjack_multiplayer
 
             while (jugador < jugadores + 1)
             {
-                int[] puntosJugadores = new int[jugadores];
                 Console.WriteLine("¿Iniciar el juego? (s/n)");               
                 cont = Console.ReadLine();                       
                 while(cont != "s" && cont != "n")
@@ -64,19 +63,22 @@ namespace Blackjack_multiplayer
                     else if (cont == "n")
                     {
                         Console.WriteLine("Gracias por jugar.");
-                        puntosJugadores[jugador - 1] = total;
+                        
                     }       
                     Console.WriteLine("Su total fue de: " + total);                    
                 }
                 jugador += 1;
-                for (int i = 0; i < puntosJugadores.Length; i++)
+                if (total > ganador)
                 {
-                    if (puntosJugadores[i] == 21)
+                    ganador = total;
+                    if (jugador > jugadorWin)
                     {
-                        puntosJugadores[i]
+                        jugadorWin = jugador;
                     }
-                    
                 }
+                  if (jugador >=jugadores) break;  
+                }
+            Console.Writeline("El ganador es: "+ jugadorWin);
             }
         }
     }
