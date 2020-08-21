@@ -13,7 +13,6 @@ namespace Blackjack_Arreglos
             Console.WriteLine("Ingrese el número de jugadores: ");
             jugadores = int.Parse(Console.ReadLine());
             jugadoresAct = jugadores;
-            string[] nombres = new string[jugadores];
             int[] puntuacion1 = new int[jugadores];
 
             while (jugadores < 2 || jugadores > 5)
@@ -21,6 +20,7 @@ namespace Blackjack_Arreglos
                 Console.WriteLine("Ingrese un número válido de jugadores.");
                 jugadores = int.Parse(Console.ReadLine());
             }
+            string[] nombres = new string[jugadores];
             
             for ( int i = 0; i< nombres.Length; i++)
             {
@@ -75,6 +75,7 @@ namespace Blackjack_Arreglos
 
                         }
                         Console.WriteLine("Su total fue de: " + total);
+                        puntuacion1 = total;
                     }
                     jugador += 1;
                     if (total > ganador)
