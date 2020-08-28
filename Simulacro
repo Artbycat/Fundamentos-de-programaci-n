@@ -1,0 +1,72 @@
+    //Punto 1
+    int salida = 0, count = 0;
+        for (int i = 0; i < ages.Length; i++)
+        {
+            if (ages[i] <= 20 && gpas[i] <= 3)
+            {
+                count++;
+            }
+        }
+        salida = count;
+   
+   //Punto 2
+    List<string> salida = new List<string>();
+        for (int i = 0; i < ages.Length; i++)
+        {
+            if (ages[i] <= 20 && gpas[i] <= 3)
+            {
+                salida.Add(names[i]);
+            }
+        }
+        
+   //Punto 3
+    List<string> salida = new List<string>();
+        for (int j = 0; j < ages.Length; j++)
+        {
+            for (int i = 0; i < ages.Length - 1; i++)
+            {
+                if (ages[i] > ages[i + 1])
+                {
+                    int tmp = ages[i];
+                    ages[i] = ages[i + 1];
+                    ages[i + 1] = tmp;
+                    string tmp1 = names[i];
+                    names[i] = names[i + 1];
+                    names[i + 1] = tmp1;
+                    double tmp2 = gpas[i];
+                    gpas[i] = gpas[i + 1];
+                    gpas[i + 1] = tmp2;
+                    string tmp3 = ids[i];
+                    ids[i] = ids[i + 1];
+                    ids[i + 1] = tmp3;
+                }
+            }
+        }
+        for (int i = 0; i < ages.Length - 1; i++)
+        {
+            if (gpas[i] >= 3 && salida.Count < 3)
+            {
+                salida.Add(names[i]);
+            }
+        }
+   
+   //Punto 4
+   List<string> salida = new List<string>();
+        for (int i = 0; i < names.Length; i++)
+        {
+            int compareIds = int.Parse(ids[i][0].ToString());
+            if (compareIds < 8)
+            {
+                string namesUpper = names[i].ToUpper();
+                for (int j = 0; j < names[i].Length; j++)
+                {
+                    if (namesUpper[j] == 'E')
+                    {
+                        salida.Add(names[i]);
+                        break;
+                    }
+                }
+            }
+        }
+        
+        
